@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Eventos from './Eventos';
+
+let evento = {
+    nombre: "Salsa dance party",
+   	fecha: "24/07/2020",
+	hora: "16:00",
+	lugar: {
+			direccion:"Done Bikendi Kalea, 2",
+			ciudad: "Bilbao"
+		}
+}
+
+let frutas = ["platano", "manzana", "pera", "limon", "cereza", "piña"]
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const mostrarFrutas = frutas.map(fruta =>  { 
+		return (
+			<li> {fruta}</li>
+	)
+	})
+
+	return (
+		<>
+		< Eventos
+			Key={evento.nombre}
+			fecha={evento.fecha}
+			hora={evento.hora}
+			lugar={evento.lugar.direccion}
+			ciudad={evento.lugar.ciudad}
+
+		/>
+			<ul>{ mostrarFrutas }</ul>
+			</>
+	)
+     
+   
 }
 
 export default App;
